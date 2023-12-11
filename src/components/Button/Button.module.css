@@ -1,9 +1,9 @@
 .button {
+    display: flex;
+    margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    position: relative;
-    top:50%;
-    left: 50%;
+    justify-content: center;
     padding: 8px 16px;
     border-radius: 5px;
     background-color: #3f51b5;
