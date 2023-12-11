@@ -33,7 +33,7 @@ export class App extends Component {
     const { q, page } = this.state;
     try {
 
-      this.setState({ loading: true, });
+      this.setState({ loading: true});
 
       const images = await fetchImages(q, page)
       console.log(images)
@@ -43,18 +43,19 @@ export class App extends Component {
       ));
       const totalPage = Math.ceil(images.totalHits / perPage)
       console.log(totalPage)
+
       if (images.totalHits === 0) {
         Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.!')
         this.setState({ btnLoadMore: false });
         return;
       }
+
       if (q === '') {
         Notiflix.Notify.info('Enter your request, please!')
         this.setState({ btnLoadMore: false });
         return;
       }
 
-      
         this.setState(prevState => ({
           images:[ ...prevState.images , ...arrPhotos],
         }))
@@ -121,7 +122,7 @@ export class App extends Component {
   }
   
   render() {
-    const { images, btnLoadMore, loading,} = this.state;
+    const { images, btnLoadMore, loading, modal:{modalImage}} = this.state;
     return (
       <>
         <Searchbar onSubmit={this.onSubmitSearchBar} />
@@ -129,8 +130,8 @@ export class App extends Component {
         <ImageGallery images={images} onOpenModal={ this.onOpenModal} />
         {btnLoadMore && <Button onLoadMore={this.onLoadMore} />}
         {this.state.modal.isShowModal &&
-          <Modal modalImage={this.state.modal.modalImage}
-                 onCloseModal={this.onCloseModal} />}
+        <Modal modalImage={modalImage}
+               onCloseModal={this.onCloseModal} />}
   
     </>)
 }

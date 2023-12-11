@@ -30,7 +30,7 @@ export class Modal extends Component {
         <div className={css.overlay} onClick={this.handleOverlayClose}>
             <div className={css.modal}>
                 <img src={largeImageURL}
-                     alt={tags} />
+                     alt={tags} className={css.modal}/>
            </div>
         </div>
     )
