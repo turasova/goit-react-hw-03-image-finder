@@ -135,4 +135,3 @@ export class App extends Component {
     </>)
 }
 };
-//this.state.modal.isShowModal &&

@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import css from './Searchbar.module.css';
+import { Svg } from 'components/Svg/Svg';
 
 
 export class Searchbar extends Component {
@@ -20,7 +21,7 @@ export class Searchbar extends Component {
     <header className={css.searchbar}>
         <form className={css.searchForm} onSubmit={this.onSubmit}>
             <button type="submit" className={css.searchFormButton}>
-                <span className={ css.searchFormButtonLabel }></span>  
+                        <Svg />
             </button>
                     <input
                         onChange={this.onSearchChange}
@@ -38,21 +39,4 @@ export class Searchbar extends Component {
 
 }
 
-// export const Searchbar = ({onSubmitSearchBar}) => (
-//     <header className={css.searchbar}>
-//         <form className={css.searchForm} onSubmit={onSubmitSearchBar}>
-//             <button type="submit" className={css.searchFormButton}>
-//                 <span className={ css.searchFormButtonLabel }></span>  
-//             </button>
-//             <input
-//                 type="text"
-//                 autoComplete="off"
-//                 autoFocus
-//                 placeholder="Search images and photos"
-//                 className={css.searchFormInput}
-//             />
-                   
-//         </form>
-//     </header>
-        
-// )
+
