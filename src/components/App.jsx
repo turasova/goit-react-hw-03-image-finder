@@ -33,7 +33,7 @@ export class App extends Component {
     const { q, page } = this.state;
     try {
 
-      this.setState({ loading: true});
+      this.setState({ loading: true, btnLoadMore: false,});
 
       const images = await fetchImages(q, page)
       console.log(images)
@@ -71,7 +71,8 @@ export class App extends Component {
       onFetchError();
       
       } finally {
-      this.setState({ loading: false});
+      this.setState({ loading: false });
+      
       }
     }
   
@@ -91,8 +92,15 @@ export class App extends Component {
       error: null,
     })
    
+      if (this.state.q === newQ) {
+        Notiflix.Notify.info('Enter new request, please!')
+        this.setState({ btnLoadMore: false });
+        return;
+    }
     
+
   }
+
   onLoadMore = () => {
     this.setState(prevState => {
       return {
